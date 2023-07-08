@@ -6,12 +6,15 @@ func _ready():
 	$MovableTiles.set_physics_process(false)
 	for t in $MovableTiles.tiles:
 		t.stop = true
+		
 	player.set_physics_process(false)
+	
 	super._ready()
 
 func _process(_delta):
 	if main_menu:
 		if Input.is_action_just_pressed("ui_accept"):
+			main.game_start = true
 			$MovableTilesMenu.set_physics_process(false)
 			
 			var tween = create_tween()

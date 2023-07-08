@@ -377,7 +377,7 @@ position = Vector2(48, 152)
 script = ExtResource("4_vnu2a")
 
 [node name="TrampTile" parent="MovableTiles" instance=ExtResource("6_g7cyf")]
-position = Vector2(112, 184)
+position = Vector2(128, 184)
 
 [node name="Win" parent="." instance=ExtResource("7_d63mg")]
 position = Vector2(352, 184)

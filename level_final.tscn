@@ -1,16 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyt30a2s3uorg"]
+[gd_scene load_steps=12 format=3 uid="uid://br6xxayft84gq"]
 
-[ext_resource type="Script" path="res://level_mainmenu.gd" id="1_n647y"]
-[ext_resource type="Texture2D" uid="uid://cju2mr8pu1ebh" path="res://icon.svg" id="2_knnn5"]
-[ext_resource type="PackedScene" uid="uid://dwma5jir68eaq" path="res://player.tscn" id="3_hynym"]
-[ext_resource type="Script" path="res://MovableTiles.gd" id="4_7niay"]
-[ext_resource type="PackedScene" uid="uid://d1pw6pe20wclh" path="res://basic_tile.tscn" id="5_isqhs"]
-[ext_resource type="PackedScene" uid="uid://r7rvamupxyxh" path="res://win.tscn" id="6_lhqy0"]
-[ext_resource type="Script" path="res://MovableTilesMenu.gd" id="6_ma8nm"]
-[ext_resource type="FontFile" uid="uid://dfafxbhtsw3c0" path="res://assets/PixeloidSans-mLxMm.ttf" id="7_bqcie"]
+[ext_resource type="Script" path="res://level.gd" id="1_4uwb8"]
+[ext_resource type="Texture2D" uid="uid://cju2mr8pu1ebh" path="res://icon.svg" id="2_wt645"]
+[ext_resource type="Script" path="res://MovableTiles.gd" id="4_ud5d0"]
+[ext_resource type="PackedScene" uid="uid://d1pw6pe20wclh" path="res://basic_tile.tscn" id="5_mnitd"]
+[ext_resource type="PackedScene" uid="uid://r7rvamupxyxh" path="res://win.tscn" id="6_meerc"]
+[ext_resource type="FontFile" uid="uid://dfafxbhtsw3c0" path="res://assets/PixeloidSans-mLxMm.ttf" id="7_38exu"]
+[ext_resource type="Script" path="res://Time.gd" id="7_lsl44"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c4nvn"]
-texture = ExtResource("2_knnn5")
+texture = ExtResource("2_wt645")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -359,49 +358,34 @@ physics_layer_1/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_c4nvn")
 
 [sub_resource type="LabelSettings" id="LabelSettings_pqtbq"]
+font = ExtResource("7_38exu")
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_xmm32"]
 line_spacing = 4.0
-font = ExtResource("7_bqcie")
+font = ExtResource("7_38exu")
 font_size = 18
 shadow_size = 0
 
 [node name="level" type="Node2D"]
-script = ExtResource("1_n647y")
+script = ExtResource("1_4uwb8")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fjhh1")
 cell_quadrant_size = 8
 format = 2
-layer_0/tile_data = PackedInt32Array(1703936, 393216, 6, 1769472, 393216, 6, 1703937, 393216, 6, 1769473, 393216, 6, 1703938, 393216, 6, 1769474, 393216, 6, 1703939, 393216, 6, 1769475, 393216, 6, 1703940, 393216, 6, 1769476, 393216, 6, 1703971, 393216, 6, 1769507, 393216, 6, 1703972, 393216, 6, 1769508, 393216, 6, 1703973, 393216, 6, 1769509, 393216, 6, 1703974, 393216, 6, 1769510, 393216, 6, 1703975, 393216, 6, 1769511, 393216, 6, 1703976, 393216, 6, 1769512, 393216, 6, 1703977, 393216, 6, 1769513, 393216, 6, 1703978, 393216, 6, 1769514, 393216, 6, 1703979, 393216, 6, 1769515, 393216, 6, 1703980, 393216, 6, 1769516, 393216, 6, 1703981, 393216, 6, 1769517, 393216, 6, 1703982, 393216, 6, 1769518, 393216, 6, 1703983, 393216, 6, 1769519, 393216, 6, 1703984, 393216, 6, 1769520, 393216, 6, 1703985, 393216, 6, 1769521, 393216, 6, 1703941, 393216, 6, 1769477, 393216, 6, 1703942, 393216, 6, 1769478, 393216, 6, 1703943, 393216, 6, 1769479, 393216, 6, 1703944, 393216, 6, 1769480, 393216, 6, 1769481, 393216, 6, 1703946, 327680, 5, 1769482, 393216, 6, 1703947, 327680, 5, 1769483, 393216, 6, 1703948, 327680, 5, 1769484, 393216, 6, 1703949, 327680, 5, 1769485, 393216, 6, 1703950, 327680, 5, 1769486, 393216, 6, 1703951, 327680, 5, 1769487, 393216, 6, 1703952, 327680, 5, 1769488, 393216, 6, 1769489, 393216, 6, 1703954, 131072, 2, 1769490, 393216, 6, 1703955, 131072, 2, 1769491, 393216, 6, 1703956, 131072, 2, 1769492, 393216, 6, 1703957, 131072, 2, 1769493, 393216, 6, 1703958, 131072, 2, 1769494, 393216, 6, 1703959, 131072, 2, 1769495, 393216, 6, 1703960, 393216, 6, 1769496, 393216, 6, 1703961, 393216, 6, 1769497, 393216, 6, 1703962, 393216, 6, 1769498, 393216, 6, 1703963, 393216, 6, 1769499, 393216, 6, 1703964, 393216, 6, 1769500, 393216, 6, 1703965, 393216, 6, 1769501, 393216, 6, 1703966, 393216, 6, 1769502, 393216, 6, 1703967, 393216, 6, 1769503, 393216, 6, 1703968, 393216, 6, 1769504, 393216, 6, 1703969, 393216, 6, 1769505, 393216, 6, 1703970, 393216, 6, 1769506, 393216, 6, 1703945, 327680, 5, 1507357, 327680, 5, 1572893, 327680, 5, 65534, 393216, 6, 131070, 393216, 6, 196606, 393216, 6, 262142, 393216, 6, 327678, 393216, 6, 393214, 393216, 6, 458750, 393216, 6, 524286, 393216, 6, 589822, 393216, 6, 655358, 393216, 6, 720894, 393216, 6, 786430, 393216, 6, 851966, 393216, 6, 917502, 393216, 6, 983038, 393216, 6, 1048574, 393216, 6, 1114110, 393216, 6, 1179646, 393216, 6, 1245182, 393216, 6, 1310718, 393216, 6, 1376254, 393216, 6, 1441790, 393216, 6, 1507326, 393216, 6, 1572862, 393216, 6, 1638398, 393216, 6, 1703934, 393216, 6, 1769470, 393216, 6, 1835006, 393216, 6, 65535, 393216, 6, 131071, 393216, 6, 196607, 393216, 6, 262143, 393216, 6, 327679, 393216, 6, 393215, 393216, 6, 458751, 393216, 6, 524287, 393216, 6, 589823, 393216, 6, 655359, 393216, 6, 720895, 393216, 6, 786431, 393216, 6, 851967, 393216, 6, 917503, 393216, 6, 983039, 393216, 6, 1048575, 393216, 6, 1114111, 393216, 6, 1179647, 393216, 6, 1245183, 393216, 6, 1310719, 393216, 6, 1376255, 393216, 6, 1441791, 393216, 6, 1507327, 393216, 6, 1572863, 393216, 6, 1638399, 393216, 6, 1703935, 393216, 6, 1769471, 393216, 6, 1835007, 393216, 6, 50, 393216, 6, 65586, 393216, 6, 131122, 393216, 6, 196658, 393216, 6, 262194, 393216, 6, 327730, 393216, 6, 393266, 393216, 6, 458802, 393216, 6, 524338, 393216, 6, 589874, 393216, 6, 655410, 393216, 6, 720946, 393216, 6, 786482, 393216, 6, 852018, 393216, 6, 917554, 393216, 6, 983090, 393216, 6, 1048626, 393216, 6, 1114162, 393216, 6, 1179698, 393216, 6, 1245234, 393216, 6, 1310770, 393216, 6, 1376306, 393216, 6, 1441842, 393216, 6, 1507378, 393216, 6, 1572914, 393216, 6, 1638450, 393216, 6, 1703986, 393216, 6, 1769522, 393216, 6, 51, 393216, 6, 65587, 393216, 6, 131123, 393216, 6, 196659, 393216, 6, 262195, 393216, 6, 327731, 393216, 6, 393267, 393216, 6, 458803, 393216, 6, 524339, 393216, 6, 589875, 393216, 6, 655411, 393216, 6, 720947, 393216, 6, 786483, 393216, 6, 852019, 393216, 6, 917555, 393216, 6, 983091, 393216, 6, 1048627, 393216, 6, 1114163, 393216, 6, 1179699, 393216, 6, 1245235, 393216, 6, 1310771, 393216, 6, 1376307, 393216, 6, 1441843, 393216, 6, 1507379, 393216, 6, 1572915, 393216, 6, 1638451, 393216, 6, 1703987, 393216, 6, 1769523, 393216, 6, -1769472, 393216, 6, -1769471, 393216, 6, -1769470, 393216, 6, -1769469, 393216, 6, -1769468, 393216, 6, -1769467, 393216, 6, -1769466, 393216, 6, -1769465, 393216, 6, -1769464, 393216, 6, -1769463, 393216, 6, -1769462, 393216, 6, -1769461, 393216, 6, -1769460, 393216, 6, -1769459, 393216, 6, -1769458, 393216, 6, -1769457, 393216, 6, -1769456, 393216, 6, -1769455, 393216, 6, -1769454, 393216, 6, -1769453, 393216, 6, -1769452, 393216, 6, -1769451, 393216, 6, -1769450, 393216, 6, -1769449, 393216, 6, -1769448, 393216, 6, -1769447, 393216, 6, -1769446, 393216, 6, -1769445, 393216, 6, -1769444, 393216, 6, -1769443, 393216, 6, -1769442, 393216, 6, -1769441, 393216, 6, -1769440, 393216, 6, -1769439, 393216, 6, -1769438, 393216, 6, -1769437, 393216, 6, -1769436, 393216, 6, -1769435, 393216, 6, -1769434, 393216, 6, -1769433, 393216, 6, -1769432, 393216, 6, -1769431, 393216, 6, -1769430, 393216, 6, -1769429, 393216, 6, -1769428, 393216, 6, -1769427, 393216, 6, -1769426, 393216, 6, -1769425, 393216, 6, -1769424, 393216, 6, -1769423, 393216, 6, -1834983, 393216, 6, -1834984, 393216, 6, -1638385, 393216, 6, -1638384, 393216, 6, -1572847, 393216, 6, -1507311, 393216, 6, -1441775, 393216, 6, -1376239, 393216, 6, -1310703, 393216, 6, -1245167, 393216, 6, -1638382, 393216, 6, -1638381, 393216, 6, -1441770, 393216, 6, -1376234, 393216, 6, -1310698, 393216, 6, -1245162, 393216, 6, -1638374, 393216, 6, -1572838, 393216, 6, -1507302, 393216, 6, -1441766, 393216, 6, -1376230, 393216, 6, -1310694, 393216, 6, -1245158, 393216, 6, -1245157, 393216, 6, -1245156, 393216, 6, -1441760, 393216, 6, -1376224, 393216, 6, -1310688, 393216, 6, -1245152, 393216, 6)
-
-[node name="Player" parent="." instance=ExtResource("3_hynym")]
-position = Vector2(96, 200)
-
-[node name="MovableTilesMenu" type="Node2D" parent="."]
-script = ExtResource("6_ma8nm")
-
-[node name="BasicTile" parent="MovableTilesMenu" instance=ExtResource("5_isqhs")]
-position = Vector2(176, -192)
-
-[node name="BasicTile2" parent="MovableTilesMenu" instance=ExtResource("5_isqhs")]
-position = Vector2(256, -192)
-
-[node name="BasicTile3" parent="MovableTilesMenu" instance=ExtResource("5_isqhs")]
-position = Vector2(232, -152)
-
-[node name="BasicTile4" parent="MovableTilesMenu" instance=ExtResource("5_isqhs")]
-position = Vector2(136, -200)
 
 [node name="MovableTiles" type="Node2D" parent="."]
-script = ExtResource("4_7niay")
+script = ExtResource("4_ud5d0")
 
-[node name="BasicTile" parent="MovableTiles" instance=ExtResource("5_isqhs")]
+[node name="BasicTile" parent="MovableTiles" instance=ExtResource("5_mnitd")]
 position = Vector2(136, 208)
 
-[node name="BasicTile2" parent="MovableTiles" instance=ExtResource("5_isqhs")]
+[node name="BasicTile2" parent="MovableTiles" instance=ExtResource("5_mnitd")]
 position = Vector2(232, 200)
 
-[node name="Win" parent="." instance=ExtResource("6_lhqy0")]
-position = Vector2(288, 200)
+[node name="Win" parent="." instance=ExtResource("6_meerc")]
+position = Vector2(296, 272)
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -413,13 +397,20 @@ text = "Level complete!"
 label_settings = SubResource("LabelSettings_pqtbq")
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 96.0
-offset_top = -112.0
-offset_right = 313.0
-offset_bottom = -66.0
-size_flags_horizontal = 4
-text = "Press spacebar to start"
-label_settings = SubResource("LabelSettings_pqtbq")
+texture_filter = 1
+texture_repeat = 1
+offset_right = 376.0
+offset_bottom = 40.0
+text = "You have completed the game!"
+label_settings = SubResource("LabelSettings_xmm32")
+horizontal_alignment = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(200, -112)
+[node name="Time" type="Label" parent="."]
+texture_filter = 1
+texture_repeat = 1
+offset_top = 40.0
+offset_right = 376.0
+offset_bottom = 80.0
+label_settings = SubResource("LabelSettings_xmm32")
+horizontal_alignment = 1
+script = ExtResource("7_lsl44")
