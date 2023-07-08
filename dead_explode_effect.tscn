@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://730i385caiv0"]
+
+[ext_resource type="Texture2D" uid="uid://b2udo6onbupob" path="res://assets/sphere_part.png" id="1_il0s5"]
+[ext_resource type="Script" path="res://dead_explode_effect.gd" id="2_r2po1"]
+
+[sub_resource type="Curve" id="Curve_rjj5l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="dead_explode" type="CPUParticles2D"]
+modulate = Color(0.372549, 0.803922, 0.894118, 1)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("1_il0s5")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_curve = SubResource("Curve_rjj5l")
+script = ExtResource("2_r2po1")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

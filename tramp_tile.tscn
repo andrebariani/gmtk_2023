@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://db52jexyhgttc"]
+
+[ext_resource type="PackedScene" uid="uid://d1pw6pe20wclh" path="res://basic_tile.tscn" id="1_gnpyr"]
+[ext_resource type="Script" path="res://tramp_tile.gd" id="2_3tue1"]
+
+[node name="TrampTile" instance=ExtResource("1_gnpyr")]
+script = ExtResource("2_3tue1")
+
+[node name="Sprite2D" parent="." index="1"]
+modulate = Color(0, 0, 1, 1)
+
+[node name="player_detect" type="RayCast2D" parent="." index="4"]
+position = Vector2(6, 0)
+target_position = Vector2(0, -4)
+collision_mask = 8
