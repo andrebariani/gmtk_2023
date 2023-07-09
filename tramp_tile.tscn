@@ -6,8 +6,8 @@
 [node name="TrampTile" instance=ExtResource("1_gnpyr")]
 script = ExtResource("2_3tue1")
 
-[node name="Sprite2D" parent="." index="1"]
-modulate = Color(0, 0, 1, 1)
+[node name="Tiles" parent="." index="1"]
+frame = 2
 
 [node name="player_detect" type="RayCast2D" parent="." index="4"]
 position = Vector2(6, 0)

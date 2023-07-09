@@ -1,10 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://euadjr6dx4ae"]
+[gd_scene load_steps=5 format=3 uid="uid://euadjr6dx4ae"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_717ok"]
+[ext_resource type="Shader" path="res://diamond_trans.gdshader" id="2_3uvkg"]
 [ext_resource type="PackedScene" uid="uid://dyt30a2s3uorg" path="res://level_mainmenu.tscn" id="2_ujyjx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykwvd"]
+shader = ExtResource("2_3uvkg")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 10.0
 
 [node name="Main" type="Node2D" groups=["main"]]
 script = ExtResource("1_717ok")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Transition" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_ykwvd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.137255, 0.286275, 0.364706, 1)
 
 [node name="CurrentLevel" type="Node2D" parent="."]
 

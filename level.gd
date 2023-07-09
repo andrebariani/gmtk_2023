@@ -42,5 +42,6 @@ func _on_level_completed():
 
 
 func _set_timer_complete():
-	var time = main.time_elapsed
-	timeLabel.set_text("%02d:%02d:%02d" % [time / 60, fmod(time, 60), fmod(time, 1) * 100])
+	if main:
+		var time = main.time_elapsed
+		timeLabel.set_text("%02d:%02d:%02d" % [time / 60, fmod(time, 60), fmod(time, 1) * 100])

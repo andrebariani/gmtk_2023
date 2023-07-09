@@ -8,7 +8,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="dead_explode" type="CPUParticles2D"]
-modulate = Color(0.372549, 0.803922, 0.894118, 1)
+modulate = Color(0.854902, 0.94902, 0.913725, 1)
 emitting = false
 amount = 16
 one_shot = true
