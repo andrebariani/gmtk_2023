@@ -16,6 +16,7 @@ func _physics_process(_delta):
 	particles.position = particles.position.lerp((tiles[tiles_idx].position) + Vector2(4,4), 40 * _delta)
 	
 	if Input.is_action_just_pressed("next_tile"):
+		particles.get_node("woosh").play(0.0)
 		tiles[tiles_idx].selected = false
 		
 		# ugh

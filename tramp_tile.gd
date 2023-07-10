@@ -9,6 +9,8 @@ func _physics_process(_delta):
 		var player = player_detect.get_collider()
 		if player.curr_state == player.state.MOVE:
 			player.apply_jump(player.JUMP_VELOCITY * 1.4)
+			$launch.play(0.0)
+			$launch2.play(0.0)
 			
 			# anim
 			var tween = create_tween()

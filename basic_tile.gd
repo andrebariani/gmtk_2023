@@ -25,6 +25,7 @@ func _unhandled_input(event):
 	if not stop:
 		if selected:
 			if event.is_action_pressed("reset_tile"):
+				$reset.play(0.0)
 				position = initial_position
 			if moving:
 				return
@@ -33,6 +34,7 @@ func _unhandled_input(event):
 					move(dir)
 
 func move(dir):
+	$move.play(0.0)
 	ray.target_position = inputs[dir] * tile_size
 	ray.force_raycast_update()
 	if !ray.is_colliding():

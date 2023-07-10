@@ -22,8 +22,9 @@ func _ready():
 func _process(_delta):
 	if not level_completed:
 		if Input.is_action_just_pressed("reset"):
-			player.reset()
-			player.position = player_initial_pos
+			if player:
+				player.reset()
+				player.position = player_initial_pos
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
 			if main:

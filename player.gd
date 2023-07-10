@@ -38,6 +38,7 @@ func _physics_process(delta):
 				anim.play("idle")
 			
 			if Input.is_action_just_pressed("ui_accept"):
+				$start.play(0.0)
 				curr_state = state.MOVE
 		state.MOVE:
 			if not is_on_floor():
@@ -47,11 +48,14 @@ func _physics_process(delta):
 				anim.play("move")
 
 			if not (pit_detect.is_colliding() or pit_warning.is_colliding()) and is_on_floor():
+				$jump.play(0.0)
 				apply_jump(JUMP_VELOCITY)
 			elif is_on_wall():
 				if not short_jump_detect.is_colliding() and is_on_floor():
+					$jump.play(0.0)
 					apply_jump(JUMP_VELOCITY * 0.7)
 				elif not high_jump_detect.is_colliding() and is_on_floor():
+					$jump.play(0.0)
 					apply_jump(JUMP_VELOCITY)
 			
 
@@ -75,9 +79,11 @@ func reset():
 	$Sprite2D.visible = true
 	curr_state = state.IDLE
 	velocity = Vector2.ZERO
+	$reset.play(0.0)
 
 func _on_hurtbox_body_entered(_body):
 	if curr_state != state.DEAD:
+		$dead.play(0.0)
 		var particles = dead_explode.instantiate()
 		particles.position = self.position + Vector2(4, 4)
 		get_parent().add_child(particles)

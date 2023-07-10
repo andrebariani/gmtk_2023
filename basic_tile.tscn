@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1pw6pe20wclh"]
+[gd_scene load_steps=7 format=3 uid="uid://d1pw6pe20wclh"]
 
 [ext_resource type="Script" path="res://basic_tile.gd" id="1_o72r5"]
 [ext_resource type="Texture2D" uid="uid://br5flp5w4wql8" path="res://assets/tiles.png" id="2_i7yn4"]
-[ext_resource type="Texture2D" uid="uid://b2udo6onbupob" path="res://assets/sphere_part.png" id="3_yjul0"]
+[ext_resource type="Texture2D" uid="uid://p4tfya0wknsn" path="res://assets/image.png" id="3_8hpk4"]
+[ext_resource type="AudioStream" uid="uid://chxyuokdkjvd8" path="res://assets/sfx/move.mp3" id="4_ak0lh"]
+[ext_resource type="AudioStream" uid="uid://cdm57xyftfgru" path="res://assets/sfx/tile_reset.mp3" id="5_o5d8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gurvn"]
 size = Vector2(8, 8)
@@ -24,8 +26,10 @@ vframes = 3
 region_rect = Rect2(0, 0, 11, 8)
 
 [node name="PointLight2D" type="PointLight2D" parent="Tiles"]
-color = Color(0.607843, 0.133333, 0.584314, 1)
-texture = ExtResource("3_yjul0")
+color = Color(1, 0.498039, 1, 1)
+energy = 5.0
+blend_mode = 2
+texture = ExtResource("3_8hpk4")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(4, 4)
@@ -34,5 +38,14 @@ collision_mask = 6
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
+
+[node name="move" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ak0lh")
+volume_db = -10.0
+pitch_scale = 2.0
+
+[node name="reset" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_o5d8n")
+volume_db = -10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

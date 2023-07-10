@@ -17,6 +17,7 @@ func _process(_delta):
 			main.game_start = true
 			$MovableTilesMenu.set_physics_process(false)
 			
+			$trans.play(0.0)
 			var tween = create_tween()
 			tween.finished.connect(_on_transitioned)
 			tween.tween_property($Camera2D, "position",
@@ -26,9 +27,14 @@ func _process(_delta):
 	else:
 		if not level_completed:
 			if Input.is_action_just_pressed("reset"):
+				
 				player.reset()
 				player.position = player_initial_pos
 		else:
+			$PressAresetTile.visible = false
+			$PressZcycle.visible = false
+			$PressZarrows.visible = false
+			$PressSresetPlayer.visible = false
 			if Input.is_action_just_pressed("ui_accept"):
 				if main:
 					main.next_level()
@@ -41,3 +47,4 @@ func _on_transitioned():
 	for t in $MovableTiles.tiles:
 		t.stop = false
 	player.set_physics_process(true)
+	$AnimationPlayer.play("fade_in_instructions")

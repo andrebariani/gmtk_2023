@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://euadjr6dx4ae"]
+[gd_scene load_steps=8 format=3 uid="uid://euadjr6dx4ae"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_717ok"]
 [ext_resource type="Shader" path="res://diamond_trans.gdshader" id="2_3uvkg"]
 [ext_resource type="PackedScene" uid="uid://dyt30a2s3uorg" path="res://level_mainmenu.tscn" id="2_ujyjx"]
 [ext_resource type="Texture2D" uid="uid://c373wumplb1gb" path="res://assets/godot.windows.opt.tools.64_C4K5EZK3id.png" id="3_i1jp7"]
+[ext_resource type="AudioStream" uid="uid://dd0fh6qctnaoa" path="res://assets/sfx/transin.mp3" id="5_rgei6"]
+[ext_resource type="AudioStream" uid="uid://bm0uwwyfs17d7" path="res://assets/sfx/trans.mp3" id="6_wna2j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykwvd"]
 shader = ExtResource("2_3uvkg")
@@ -36,3 +38,13 @@ texture = ExtResource("3_i1jp7")
 [node name="CurrentLevel" type="Node2D" parent="."]
 
 [node name="level" parent="CurrentLevel" instance=ExtResource("2_ujyjx")]
+
+[node name="fadein" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rgei6")
+volume_db = -10.0
+pitch_scale = 1.62
+
+[node name="fadeout" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_wna2j")
+volume_db = -10.0
+pitch_scale = 1.62

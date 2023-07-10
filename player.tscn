@@ -1,7 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwma5jir68eaq"]
+[gd_scene load_steps=14 format=3 uid="uid://dwma5jir68eaq"]
 
 [ext_resource type="Texture2D" uid="uid://cygkm8b8gb4ei" path="res://assets/player_gmtk_2023.png" id="1_2q3ax"]
 [ext_resource type="Script" path="res://player.gd" id="1_f17c6"]
+[ext_resource type="AudioStream" uid="uid://c84vm3isavqss" path="res://assets/sfx/start.mp3" id="3_wfty0"]
+[ext_resource type="AudioStream" uid="uid://dnydjqcj5av7a" path="res://assets/sfx/jump.mp3" id="4_0t6qu"]
+[ext_resource type="AudioStream" uid="uid://bcpjpuc2ds7cc" path="res://assets/sfx/dead.mp3" id="5_fdsul"]
+[ext_resource type="AudioStream" uid="uid://cdm57xyftfgru" path="res://assets/sfx/tile_reset.mp3" id="6_07xf1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bu4s6"]
 size = Vector2(8, 6)
@@ -133,5 +137,22 @@ collision_mask = 10
 position = Vector2(8, -12)
 target_position = Vector2(4, 0)
 collision_mask = 10
+
+[node name="start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wfty0")
+volume_db = -10.0
+
+[node name="jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0t6qu")
+volume_db = -10.0
+
+[node name="dead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_fdsul")
+volume_db = -10.0
+
+[node name="reset" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_07xf1")
+volume_db = -15.0
+pitch_scale = 5.0
 
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

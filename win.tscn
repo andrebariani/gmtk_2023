@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://r7rvamupxyxh"]
+[gd_scene load_steps=5 format=3 uid="uid://r7rvamupxyxh"]
 
 [ext_resource type="Script" path="res://win.gd" id="1_xwu8l"]
 [ext_resource type="Texture2D" uid="uid://br5flp5w4wql8" path="res://assets/tiles.png" id="2_x3fle"]
+[ext_resource type="AudioStream" uid="uid://cq5vd0f3kgayi" path="res://assets/sfx/win.mp3" id="3_r0512"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_166t1"]
 size = Vector2(8, 32)
@@ -29,5 +30,9 @@ emitting = false
 emission_shape = 3
 emission_rect_extents = Vector2(8, 8)
 gravity = Vector2(0, -980)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_r0512")
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

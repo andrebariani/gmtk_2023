@@ -22,6 +22,7 @@ func _process(delta):
 		time_elapsed += delta
 
 func next_level():
+	$fadeout.play(0.0)
 	var tween = get_tree().create_tween()
 	tween.finished.connect(_on_fade_out)
 	tween.tween_property(transition.material, "shader_parameter/progress", 1, 1).set_trans(Tween.TRANS_LINEAR)
@@ -41,6 +42,7 @@ func _on_fade_out():
 	var level = levels[level_idx].instantiate()
 	$CurrentLevel.add_child(level)
 	
+	$fadein.play(0.0)
 	var tween = get_tree().create_tween()
 	tween.finished.connect(_on_fade_in)
 	tween.tween_property(transition.material, "shader_parameter/progress", 0, 0.7).set_trans(Tween.TRANS_LINEAR)

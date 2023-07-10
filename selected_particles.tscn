@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c6uqeqj8pfkcr"]
+[gd_scene load_steps=2 format=3 uid="uid://c6uqeqj8pfkcr"]
+
+[ext_resource type="AudioStream" uid="uid://bwgg7sibp0exd" path="res://assets/sfx/swoosh.mp3" id="1_x8u33"]
 
 [node name="SelectedParticles" type="CPUParticles2D"]
 modulate = Color(0.607843, 0.133333, 0.584314, 1)
@@ -17,3 +19,8 @@ radial_accel_min = 40.4
 radial_accel_max = 54.53
 tangential_accel_min = 19.19
 tangential_accel_max = 31.31
+
+[node name="woosh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_x8u33")
+volume_db = -5.0
+pitch_scale = 20.0
